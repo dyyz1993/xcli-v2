@@ -9,7 +9,7 @@ import {
   navigateSession,
   refreshSession,
   requireSession,
-} from '@xcli-v2/session';
+} from '../session/index.js';
 
 interface BuiltinDeps {
   startDaemon: () => Promise<{ port: number; pid: number }>;
@@ -144,7 +144,7 @@ export function registerAdvancedCommands(site: SiteInstance, _deps: BuiltinDeps)
     handler: async (params) => {
       try {
         requireSession(params.session);
-        const { daemonRequest } = await import('@xcli-v2/session');
+        const { daemonRequest } = await import('../session/index.js');
         const result = await daemonRequest('page.structure', {
           name: params.session,
           selector: params.selector,

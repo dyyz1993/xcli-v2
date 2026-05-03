@@ -1,11 +1,32 @@
 {
-  "name": "xcli-v2-workspace",
+  "name": "xcli-v2",
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "bin": {
+    "xcli": "./bin/xcli.ts"
+  },
   "scripts": {
-    "build": "pnpm -r run build",
-    "lint": "pnpm -r run lint",
-    "typecheck": "pnpm -r run typecheck"
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "start": "node --loader ts-node/esm bin/xcli.ts",
+    "lint": "eslint src/ bin/",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@dyyz1993/xcli-core": "latest",
+    "@dyyz1993/xcli-tips": "latest",
+    "jiti": "^2.4.2",
+    "playwright": "^1.52.0",
+    "playwright-core": "^1.52.0",
+    "ws": "^8.18.2",
+    "yaml": "^2.7.1",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/ws": "^8.18.1",
+    "tsup": "^8.4.0",
+    "typescript": "^5.8.3"
   }
 }

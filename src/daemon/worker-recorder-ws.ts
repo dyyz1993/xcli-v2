@@ -1,5 +1,5 @@
 import type { Page, BrowserContext, CDPSession } from 'playwright-core';
-import { RecorderController, PlaybackEngine } from '@xcli-v2/browser-engine';
+import { RecorderController, PlaybackEngine } from '../recorder/index.js';
 
 interface ScreencastDeps {
   page: Page;

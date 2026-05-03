@@ -1,4 +1,4 @@
-import type { LayoutNode } from './types';
+import type { LayoutNode } from './types.js';
 
 export function layoutToYaml(node: LayoutNode | null, indent: number = 0): string {
   if (!node) return '';

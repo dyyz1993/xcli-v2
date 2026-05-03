@@ -1,6 +1,6 @@
 import type { BrowserContext, Page } from 'playwright-core';
 import type { Cookie } from 'playwright-core';
-import { executePageCommand } from '@xcli-v2/browser-engine';
+import { executePageCommand } from '../commands/index.js';
 
 export interface SessionRef {
   name: string;

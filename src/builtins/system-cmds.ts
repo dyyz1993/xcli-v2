@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { ok, fail } from '@dyyz1993/xcli-core';
 import type { SiteInstance } from '@dyyz1993/xcli-core';
-import { listSessions } from '@xcli-v2/session';
+import { listSessions } from '../session/index.js';
 
 interface BuiltinDeps {
   startDaemon: () => Promise<{ port: number; pid: number }>;

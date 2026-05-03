@@ -16,7 +16,7 @@ import {
   screenshotSession,
   htmlSession,
   evalScriptSession,
-} from '@xcli-v2/session';
+} from '../session/index.js';
 
 interface BuiltinDeps {
   startDaemon: () => Promise<{ port: number; pid: number }>;

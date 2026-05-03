@@ -1,6 +1,6 @@
-export { layoutToYaml } from './layout-formatters';
+export { layoutToYaml } from './layout-formatters.js';
 
-import { LAYOUT_HELPER_CODE } from './layout-helpers';
+import { LAYOUT_HELPER_CODE } from './layout-helpers.js';
 
 export const LAYOUT_EXTRACTOR_FN = `
 (function(selector) {

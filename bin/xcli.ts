@@ -92,7 +92,7 @@ function outputFlags(options: Record<string, unknown>) {
 // --- Plugin & builtin loading ---
 
 async function loadBuiltinCommands(): Promise<void> {
-  const builtinsDir = join(__dirname, '..', 'packages', 'builtins', 'src');
+  const builtinsDir = join(__dirname, '..', 'src', 'builtins');
   for (const category of ['browser', 'storage', 'system']) {
     const categoryDir = join(builtinsDir, category);
     if (!existsSync(categoryDir)) continue;
@@ -167,8 +167,8 @@ async function ensureDaemonRunning(options: Record<string, unknown>): Promise<vo
     if (res.ok) return;
   } catch { /* not running */ }
   try {
-    const { startDaemon } = await import('../packages/daemon/src/index.js');
-    await startDaemon({ port });
+      const { startDaemon } = await import('../src/daemon/index.js');
+      await startDaemon();
     evolveEngine.record({ type: 'daemon_start', port, status: 'ok' });
   } catch (err) {
     const msg = err instanceof Error ? err.message : String(err);
@@ -297,8 +297,8 @@ async function handleDaemonCommand(args: string[]): Promise<boolean> {
   if (sub === 'start') {
     const startPort = Number(args[1]) || port;
     try {
-      const { startDaemon } = await import('../packages/daemon/src/index.js');
-      await startDaemon({ port: startPort });
+      const { startDaemon } = await import('../src/daemon/index.js');
+      await startDaemon();
       console.log(`Daemon started on port ${startPort}`);
     } catch (err) { console.error(`Failed to start daemon: ${err instanceof Error ? err.message : err}`); }
     return true;

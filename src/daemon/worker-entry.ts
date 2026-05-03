@@ -1,7 +1,7 @@
 import { chromium, type Browser, type BrowserContext, type Page } from 'playwright-core';
 import type { Cookie } from 'playwright-core';
-import type { IPCMessage, IPCResponse } from '../ipc-types.js';
-import { executePageCommand } from '@xcli-v2/browser-engine';
+import type { IPCMessage, IPCResponse } from './ipc-types.js';
+import { executePageCommand } from '../commands/index.js';
 import { mpageCommandMap, executeMpageCommand } from './worker-commands.js';
 import {
   handleStorageGet,
@@ -27,7 +27,7 @@ interface WorkerSession {
   name: string;
   context: BrowserContext;
   page: Page;
-  recorder?: import('@xcli-v2/browser-engine').RecorderController;
+  recorder?: import('../recorder/index.js').RecorderController;
   screencastSessionId?: number;
 }
 

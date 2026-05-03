@@ -1,5 +1,5 @@
 import type { Page } from 'playwright-core';
-import { executePageCommand } from '@xcli-v2/browser-engine';
+import { executePageCommand } from '../commands/index.js';
 
 export type MpageCommandMapping = {
   command: string;

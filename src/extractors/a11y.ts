@@ -1,4 +1,4 @@
-import type { A11yNode } from './types';
+import type { A11yNode } from './types.js';
 
 export const A11Y_EXTRACTOR_FN = `
 (function(selector) {
